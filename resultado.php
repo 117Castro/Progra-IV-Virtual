@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Resultado de la compra</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-      }
-      
-      .container {
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
-      
-      h1, h2, p {
-        margin: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <?php
-        $nombre = $_POST["nombre"];
-        $precio = floatval($_POST["precio"]);
-        $cantidad = intval($_POST["cantidad"]);
-        $subtotal = $
+<head>
+	<title>Resultados de la calculadora</title>
+</head>
+<body>
+	<h1>Resultados de la calculadora</h1>
+	<?php
+    $nombre = $_POST["nombre"];
+		$cantidad = $_POST["cantidad"];
+		$precio = $_POST["precio"];
+		$subtotal = $cantidad * $precio;
+		$cesc = $subtotal * 0.05;
+		$iva = $subtotal * 0.13;
+		$total = $subtotal + $cesc + $iva;
+	?>
+    <p>Nombre del producto: <?php echo $nombre; ?></p>
+	<p>Subtotal: $<?php echo number_format($subtotal, 2); ?></p>
+	<p>CESC (5%): $<?php echo number_format($cesc, 2); ?></p>
+	<p>IVA (13%): $<?php echo number_format($iva, 2); ?></p>
+	<p>Total a pagar: $<?php echo number_format($total, 2); ?></p>
+</body>
+</html>

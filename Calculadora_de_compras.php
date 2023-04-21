@@ -7,41 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-<form id="formulario">
-		<h2>Calculadora de Compra</h2>
-		<label class="etiqueta" for="nombre">Nombre del producto:</label>
-		<input type="text" id="nombre" required><br>
-		<label class="etiqueta" for="precio">Precio del producto:</label>
-		<input type="number" id="precio" min="1" step="0.01" required><br>
-		<label class="etiqueta" for="cantidad">Cantidad:</label>
-		<input type="number" id="cantidad" min="1" required><br>
+<h1>Calculadora de pago</h1>
+	<form method="post" action="resultado.php">
+		<label for="nombre">Nombre del producto:</label>
+		<input type="text" id="nombre" name="nombre" required>
+		<br>
+		<label for="cantidad">Cantidad de productos:</label>
+		<input type="number" id="cantidad" name="cantidad" min="1" required>
+		<br>
+		<label for="precio">Precio del producto:</label>
+		<input type="number" id="precio" name="precio" min="0" step="0.01" required>
+		<br>
 		<button type="submit">Calcular</button>
 	</form>
-	<div id="resultado" class="resultado"></div>
-	<script>
-		const formulario = document.getElementById("formulario");
-		const resultado = document.getElementById("resultado");
-
-		formulario.addEventListener("submit", (event) => {
-			event.preventDefault();
-
-			const nombre = document.getElementById("nombre").value;
-			const precio = parseFloat(document.getElementById("precio").value);
-			const cantidad = parseInt(document.getElementById("cantidad").value);
-			const subtotal = precio * cantidad;
-			const cesc = subtotal * 0.05;
-			const iva = subtotal * 0.13;
-			const total = subtotal + cesc + iva;
-
-			resultado.innerHTML = `
-				<h2>Resultado:</h2>
-				<p>Producto: ${nombre}</p>
-				<p>Subtotal: $${subtotal.toFixed(2)}</p>
-				<p>CESC (5%): $${cesc.toFixed(2)}</p>
-				<p>IVA (13%): $${iva.toFixed(2)}</p>
-				<p>Total a pagar: $${total.toFixed(2)}</p>
-			`;
-		});
-	</script>
 </body>
 </html>
