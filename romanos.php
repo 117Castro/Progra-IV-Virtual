@@ -5,7 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla de números romanos</title>
+
+
     <style>
+
+body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           min-height: 50vh;
+            background-color: white;
+        }
+
         table {
             border-collapse: collapse;
             margin: auto;
@@ -16,11 +27,31 @@
             padding: 5px;
             text-align: center;
         }
-    </style>
+        input[type="submit"] {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: white;
+        }
+
+        th {
+            background-color: blue;
+            color: white;
+        }
+    </style> 
+
 </head>
 <body>
     <form method="post">
-        <h1>Tabla de números romanos</h1>
+        <h1>Tabla de números Naturales/Romanos</h1>
+        
         <label for="inicio">Inicio:</label><br>
         <input type="number" name="inicio" id="inicio" required min="1">
         <br>
@@ -34,7 +65,7 @@
         $inicio = $_POST["inicio"];
         $fin = $_POST["fin"];
 
-        // Validación de datos
+        
         if ($inicio >= $fin) {
             echo "<p>Error: el valor inicial debe ser menor al valor final.</p>";
         } else {
@@ -67,6 +98,8 @@
             'V' => 5,
             'IV' => 4,
             'I' => 1
+
+            
         );
         $resultado = '';
         foreach ($romanos as $romano => $valor) {
