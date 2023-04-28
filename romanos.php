@@ -52,14 +52,15 @@ body {
 <body>
     <form method="post">
         <h1>Tabla de números Naturales/Romanos</h1>
-        
+        <h2>___________________________________________</h2>
         <label for="inicio">Inicio:</label><br>
         <input type="number" name="inicio" id="inicio" required min="1">
         <br>
         <label for="fin">Fin:</label><br>
         <input type="number" name="fin" id="fin" required min="1">
         <br><br>
-        <input type="submit" value="Generar tabla">
+        <input type="submit" value="Convertir">
+        <h2>___________________________________________</h2>
     </form>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -71,7 +72,7 @@ body {
             echo "<p>Error: el primer digito debe ser menor al segundo.</p>";
         } else {
             echo "<table>";
-            echo "<thead><tr><th>Número</th><th>Romano</th></tr></thead>";
+            echo "<thead><tr><th>Numero</th><th>Romano</th></tr></thead>";
             echo "<tbody>";
             for ($i = $inicio; $i <= $fin; $i++) {
                 echo "<tr>";
