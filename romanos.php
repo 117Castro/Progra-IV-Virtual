@@ -68,7 +68,7 @@ body {
 
         
         if ($inicio >= $fin) {
-            echo "<p>Error: el valor inicial debe ser menor al valor final.</p>";
+            echo "<p>Error: el primer digito debe ser menor al segundo.</p>";
         } else {
             echo "<table>";
             echo "<thead><tr><th>Número</th><th>Romano</th></tr></thead>";
